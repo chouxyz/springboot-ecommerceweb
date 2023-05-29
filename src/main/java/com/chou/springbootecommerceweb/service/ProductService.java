@@ -1,5 +1,6 @@
 package com.chou.springbootecommerceweb.service;
 
+import com.chou.springbootecommerceweb.constant.ProductCategory;
 import com.chou.springbootecommerceweb.dto.ProductRequest;
 import com.chou.springbootecommerceweb.model.Product;
 
@@ -7,7 +8,7 @@ import java.util.List;
 
 public interface ProductService {
 
-    List<Product> getProducts();
+    List<Product> getProducts(ProductCategory category, String search);
 
     Product getProductById(Integer productId);
 

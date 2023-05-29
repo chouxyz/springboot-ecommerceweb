@@ -1,5 +1,6 @@
 package com.chou.springbootecommerceweb.controller;
 
+import com.chou.springbootecommerceweb.constant.ProductCategory;
 import com.chou.springbootecommerceweb.dto.ProductRequest;
 import com.chou.springbootecommerceweb.model.Product;
 import com.chou.springbootecommerceweb.service.ProductService;
@@ -18,8 +19,11 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/products")
-    public ResponseEntity<List<Product>> getProducts() {
-        List<Product> productList = productService.getProducts();
+    public ResponseEntity<List<Product>> getProducts(
+            @RequestParam(required = false) ProductCategory category,
+            @RequestParam(required = false) String search
+    ) {
+        List<Product> productList = productService.getProducts(category, search);
 
         return ResponseEntity.status(HttpStatus.OK).body(productList);
     }
