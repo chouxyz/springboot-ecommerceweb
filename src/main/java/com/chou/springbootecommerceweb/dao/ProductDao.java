@@ -3,7 +3,11 @@ package com.chou.springbootecommerceweb.dao;
 import com.chou.springbootecommerceweb.dto.ProductRequest;
 import com.chou.springbootecommerceweb.model.Product;
 
+import java.util.List;
+
 public interface ProductDao {
+
+    List<Product> getProducts();
 
     Product getProductById(Integer productId);
 
