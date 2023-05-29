@@ -1,7 +1,7 @@
 package com.chou.springbootecommerceweb.service.impl;
 
-import com.chou.springbootecommerceweb.constant.ProductCategory;
 import com.chou.springbootecommerceweb.dao.ProductDao;
+import com.chou.springbootecommerceweb.dto.ProductQueryParams;
 import com.chou.springbootecommerceweb.dto.ProductRequest;
 import com.chou.springbootecommerceweb.model.Product;
 import com.chou.springbootecommerceweb.service.ProductService;
@@ -17,8 +17,8 @@ public class ProductServiceImpl implements ProductService {
     private ProductDao productDao;
 
     @Override
-    public List<Product> getProducts(ProductCategory category, String search) {
-        return productDao.getProducts(category, search);
+    public List<Product> getProducts(ProductQueryParams productQueryParams) {
+        return productDao.getProducts(productQueryParams);
     }
 
     @Override

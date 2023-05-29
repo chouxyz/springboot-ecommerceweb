@@ -1,6 +1,7 @@
 package com.chou.springbootecommerceweb.controller;
 
 import com.chou.springbootecommerceweb.constant.ProductCategory;
+import com.chou.springbootecommerceweb.dto.ProductQueryParams;
 import com.chou.springbootecommerceweb.dto.ProductRequest;
 import com.chou.springbootecommerceweb.model.Product;
 import com.chou.springbootecommerceweb.service.ProductService;
@@ -23,7 +24,11 @@ public class ProductController {
             @RequestParam(required = false) ProductCategory category,
             @RequestParam(required = false) String search
     ) {
-        List<Product> productList = productService.getProducts(category, search);
+        ProductQueryParams productQueryParams = new ProductQueryParams();
+        productQueryParams.setCategory(category);
+        productQueryParams.setSearch(search);
+
+        List<Product> productList = productService.getProducts(productQueryParams);
 
         return ResponseEntity.status(HttpStatus.OK).body(productList);
     }
