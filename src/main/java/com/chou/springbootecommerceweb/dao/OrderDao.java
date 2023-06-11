@@ -1,10 +1,15 @@
 package com.chou.springbootecommerceweb.dao;
 
+import com.chou.springbootecommerceweb.model.Order;
 import com.chou.springbootecommerceweb.model.OrderItem;
 
 import java.util.List;
 
 public interface OrderDao {
+
+    Order getOrderById(Integer orderId);
+
+    List<OrderItem> getOrderItemsByOrderId(Integer orderId);
 
     Integer createOrder(Integer userId, Integer totalAmount);
 
