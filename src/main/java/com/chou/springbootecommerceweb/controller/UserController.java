@@ -30,8 +30,8 @@ public class UserController {
 
     @PostMapping("/users/login")
     public ResponseEntity<User> login(@RequestBody @Valid UserLoginRequest userLoginRequest) {
-        User user1 = userService.login(userLoginRequest);
+        User user = userService.login(userLoginRequest);
 
-        return ResponseEntity.status(HttpStatus.OK).body(user1);
+        return ResponseEntity.status(HttpStatus.OK).body(user);
     }
 }
